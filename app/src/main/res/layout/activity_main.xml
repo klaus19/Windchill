@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/linear"
+      android:orientation="horizontal">
+
+      <androidx.appcompat.widget.AppCompatButton
+          android:id="@+id/btnEnglish"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="80dp"
+          android:layout_marginTop="100dp"
+          android:textColor="@color/white"
+          android:background="@drawable/rounded_corner"
+          android:text="English" />
+
+      <androidx.appcompat.widget.AppCompatButton
+          android:id="@+id/btnMetric"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/rounded_corner"
+          android:layout_centerHorizontal="true"
+          android:layout_marginLeft="70dp"
+          android:layout_marginTop="100dp"
+          android:textColor="@color/white"
+          android:layout_toRightOf="@id/btnEnglish"
+          android:text="Metric" />
+  </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linear"
+        android:visibility="invisible"
+        android:id="@+id/frame">
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_below="@id/linear"
+            android:id="@+id/fragemnt_english"
+            android:layout_marginTop="10dp"
+            android:name="com.example.windchill.ui.fragments.EnglishFragment"
+
+            />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/linear"
+        android:visibility="invisible"
+        android:id="@+id/frame_metric">
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_below="@id/linear"
+            android:id="@+id/fragment_metric"
+            android:layout_marginTop="10dp"
+            android:name="com.example.windchill.ui.fragments.MetricFragment"/>
+
+    </FrameLayout>
+
+
+
+</RelativeLayout>
