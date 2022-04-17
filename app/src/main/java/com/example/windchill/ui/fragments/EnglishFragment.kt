@@ -36,9 +36,6 @@ class EnglishFragment : Fragment() {
         _binding.btnCalculateEnglish.setOnClickListener {
 
                 findChillFactor()
-
-
-
         }
     }
 
@@ -46,11 +43,13 @@ class EnglishFragment : Fragment() {
 
         viewModel.letsFindwindchillFactor().observe(viewLifecycleOwner) {
 
+
+            viewModel._temperatureInFarhenite.value = _binding?.editTemperatureFR?.text.toString().toDouble()
+            viewModel._velocityOfWind_InMiles.value = _binding?.editWindM?.text.toString().toDouble()
+            viewModel.letsFindwindchillFactor()
             _binding.txtValue.text = viewModel._chillFactor.toString()
         }
-        viewModel._temperatureInFarhenite.value = _binding?.editTemperatureFR?.text.toString().toDouble()
-        viewModel._velocityOfWind_InMiles.value = _binding?.editWindM?.text.toString().toDouble()
-        viewModel.letsFindwindchillFactor()
+
 
     }
 

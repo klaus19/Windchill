@@ -31,10 +31,14 @@ class EnglishViewModel:ViewModel() {
                //     (0.4275*_temperatureInFarhenite.toString().toDouble())*(_velocityOfWind_InMiles.toString()
                // .toDouble().pow(0.16))
 
-           val a = 35.75*_velocityOfWind_InMiles.toString().toDouble().pow(0.16)
-           val b = 0.4275*_temperatureInFarhenite.toString().toDouble()*a
+       //    val a = 35.75*_velocityOfWind_InMiles.toString().toDouble().pow(0.16)
+        //   val b = 0.4275*_temperatureInFarhenite.toString().toDouble()*a
 
-           _chillFactor.value = 35.74 + 0.6215*_temperatureInFarhenite.toString().toDouble() - a+b
+        //   _chillFactor.value = 35.74 + 0.6215*_temperatureInFarhenite.toString().toDouble() - a+b
+
+           val a =  _temperatureInFarhenite.toString().toDouble()
+           val b = _velocityOfWind_InMiles.toString().toDouble()
+           _chillFactor.value =a+b
 
             return _chillFactor
         }
