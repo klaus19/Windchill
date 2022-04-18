@@ -31,7 +31,8 @@ class EnglishFragment : Fragment() {
         val view = _binding.root
         return view
 
-         viewModel = ViewModelProvider(this).get(EnglishViewModel::class.java)
+         viewModel = ViewModelProvider(requireActivity()).get(EnglishViewModel::class.java)
+
 
         _binding.btnCalculateEnglish.setOnClickListener {
 
@@ -44,12 +45,12 @@ class EnglishFragment : Fragment() {
         viewModel.letsFindwindchillFactor().observe(viewLifecycleOwner) {
 
 
-            viewModel._temperatureInFarhenite.value = _binding?.editTemperatureFR?.text.toString().toDouble()
-            viewModel._velocityOfWind_InMiles.value = _binding?.editWindM?.text.toString().toDouble()
-            viewModel.letsFindwindchillFactor()
             _binding.txtValue.text = viewModel._chillFactor.toString()
-        }
+            viewModel.letsFindwindchillFactor()
 
+        }
+        viewModel._temperatureInFarhenite.value = _binding?.editTemperatureFR?.text.toString().toDouble()
+        viewModel._velocityOfWind_InMiles.value = _binding?.editWindM?.text.toString().toDouble()
 
     }
 
