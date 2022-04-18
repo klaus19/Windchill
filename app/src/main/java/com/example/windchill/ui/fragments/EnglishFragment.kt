@@ -29,7 +29,7 @@ class EnglishFragment : Fragment() {
         // Inflate the layout for this fragment
          _binding = FragmentEnglishBinding.inflate(inflater,container,false)
         val view = _binding.root
-        return view
+
 
          viewModel = ViewModelProvider(requireActivity()).get(EnglishViewModel::class.java)
 
@@ -38,6 +38,7 @@ class EnglishFragment : Fragment() {
 
                 findChillFactor()
         }
+        return view
     }
 
     fun findChillFactor(){
@@ -45,13 +46,14 @@ class EnglishFragment : Fragment() {
         viewModel.letsFindwindchillFactor().observe(viewLifecycleOwner) {
 
 
-            _binding.txtValue.text = viewModel._chillFactor.toString()
-            viewModel.letsFindwindchillFactor()
+            _binding.txtValue.text = viewModel._chillFactor.value.toString()
 
         }
-        viewModel._temperatureInFarhenite.value = _binding?.editTemperatureFR?.text.toString().toDouble()
-        viewModel._velocityOfWind_InMiles.value = _binding?.editWindM?.text.toString().toDouble()
+        viewModel._temperatureInFarhenite.value = _binding.editTemperatureFR.text.toString().toDouble()
+        viewModel._velocityOfWind_InMiles.value = _binding.editWindM.text.toString().toDouble()
 
     }
+
+
 
 }

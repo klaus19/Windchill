@@ -1,6 +1,7 @@
 package com.example.windchill.ui.model
 
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,32 +16,24 @@ class EnglishViewModel:ViewModel() {
      val _chillFactor=MutableLiveData<Double>()
 
 
-         val temperatureInFarhenite:LiveData<Double>
-              get() = _temperatureInFarhenite
-      val _temperatureInFarhenite=MutableLiveData<Double>()
+       //  val temperatureInFarhenite:LiveData<Double>
+       //       get() = _temperatureInFarhenite
+     // val _temperatureInFarhenite:MutableLiveData<Double>() =
+    var _temperatureInFarhenite = MutableLiveData<Double>()
 
           val velocityOfWind_InMiles:LiveData<Double>
             get() = _velocityOfWind_InMiles
-      val _velocityOfWind_InMiles = MutableLiveData<Double>()
+      var _velocityOfWind_InMiles = MutableLiveData<Double>()
 
 
        fun letsFindwindchillFactor():MutableLiveData<Double>{
 
-         //  _chillFactor.value = _temperatureInFarhenite.toString().toDouble() * _velocityOfWind_InMiles.toString().toDouble()
 
-           // _chillFactor.value = 35.74+(0.6215*_temperatureInFarhenite.toString().toDouble()) -(
-             //       35.75*_velocityOfWind_InMiles.toString().toDouble().pow(0.16))+
-               //     (0.4275*_temperatureInFarhenite.toString().toDouble())*(_velocityOfWind_InMiles.toString()
-               // .toDouble().pow(0.16))
-
-       //    val a = 35.75*_velocityOfWind_InMiles.toString().toDouble().pow(0.16)
-        //   val b = 0.4275*_temperatureInFarhenite.toString().toDouble()*a
-
-        //   _chillFactor.value = 35.74 + 0.6215*_temperatureInFarhenite.toString().toDouble() - a+b
-
-            var a =  _temperatureInFarhenite.toString().toDouble()
-            var b = _velocityOfWind_InMiles.toString().toDouble()
-           _chillFactor.value =a+b
+            val xt = _temperatureInFarhenite.value
+            Log.d( "TA",  "${xt} test")
+            var a = _temperatureInFarhenite.value?:0.toString().toInt()
+            var b = _velocityOfWind_InMiles.value?:0.toString().toInt()
+           _chillFactor.value = a.toDouble()+ b.toDouble()
 
             return _chillFactor
         }
