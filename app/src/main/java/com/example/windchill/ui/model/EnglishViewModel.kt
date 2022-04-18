@@ -8,6 +8,8 @@ import kotlin.math.pow
 
 class EnglishViewModel:ViewModel() {
 
+
+
       val chillFactor:LiveData<Double>
           get() = _chillFactor
      val _chillFactor=MutableLiveData<Double>()
@@ -36,8 +38,8 @@ class EnglishViewModel:ViewModel() {
 
         //   _chillFactor.value = 35.74 + 0.6215*_temperatureInFarhenite.toString().toDouble() - a+b
 
-           val a =  _temperatureInFarhenite.toString().toDouble()
-           val b = _velocityOfWind_InMiles.toString().toDouble()
+            var a =  _temperatureInFarhenite.toString().toDouble()
+            var b = _velocityOfWind_InMiles.toString().toDouble()
            _chillFactor.value =a+b
 
             return _chillFactor
